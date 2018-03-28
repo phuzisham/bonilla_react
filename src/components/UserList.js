@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import UserBlock from './UserBlock'
 
 class UserList extends Component {
   constructor(props) {
@@ -21,9 +22,11 @@ class UserList extends Component {
   render() {
     return (
       <div>
-        Users
+        {this.state.users.map((user) => {
+          return(<UserBlock user={user} key={user.id} />)
+        })}
       </div>
-    )
+    );
   }
 }
 
